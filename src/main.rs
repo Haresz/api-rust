@@ -117,8 +117,8 @@ async fn main() {
     let routes = cities_route.or(cost_route).with(cors);
 
     warp::serve(routes)
-        .run(([127.0.0.1], 3030))
-        .await;
+    .run(([0, 0, 0, 0], 3030))
+    .await;
 }
 
 fn with_api_key(api_key: Arc<String>) -> impl Filter<Extract = (Arc<String>,), Error = std::convert::Infallible> + Clone {
